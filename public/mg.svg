@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 16.933333 16.933333"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="mg.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="true"
+     units="px"
+     showguides="false"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="49.674251"
+     inkscape:cy="65.2306"
+     inkscape:window-width="1920"
+     inkscape:window-height="1056"
+     inkscape:window-x="1920"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid824"
+       empspacing="4" />
+    <sodipodi:guide
+       position="8.4666665,7.4083332"
+       orientation="1,0"
+       id="guide11913" />
+    <sodipodi:guide
+       position="8.4666665,7.4083332"
+       orientation="0,-1"
+       id="guide11915" />
+    <sodipodi:guide
+       position="8.4666665,14.816666"
+       orientation="0,-1"
+       id="guide11917" />
+    <sodipodi:guide
+       position="4.2333333,14.816666"
+       orientation="1,0"
+       id="guide11919" />
+    <sodipodi:guide
+       position="12.7,14.816666"
+       orientation="1,0"
+       id="guide11921" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient14229">
+      <stop
+         style="stop-color:#ffcc00;stop-opacity:1;"
+         offset="0"
+         id="stop14225" />
+      <stop
+         style="stop-color:#ea9f00;stop-opacity:0.9921568"
+         offset="1"
+         id="stop14227" />
+    </linearGradient>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter15017"
+       x="-0.097781592"
+       y="-0.076391866"
+       width="1.1955632"
+       height="1.1527837">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.33686693"
+         id="feGaussianBlur15019" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient14229"
+       id="linearGradient15070"
+       gradientUnits="userSpaceOnUse"
+       x1="26"
+       y1="25"
+       x2="31"
+       y2="56"
+       gradientTransform="matrix(0.33946285,0,0,0.33946285,-3.5792887,-5.0622083)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient14229"
+       id="linearGradient15078"
+       x1="26"
+       y1="25"
+       x2="31"
+       y2="56"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.33946285,0,0,0.33946285,-3.5792887,-5.0622083)" />
+  </defs>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g16522"
+       transform="matrix(0.9326105,0,0,0.9326105,1.2772296,0.66520817)">
+      <path
+         id="path14995"
+         style="opacity:1;fill:#c8beb7;fill-opacity:1;stroke-width:0.661458;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter15017)"
+         d="M 4.3558064,3.0483925 3.363619,9.9937046 5.6048258,9.7900996 6.0094523,13.631726 11.631848,6.024955 8.8304689,6.6145831 10.97039,3.0483925 Z"
+         transform="matrix(1.2830092,0,0,1.2830092,-1.360183,-1.8446042)" />
+      <path
+         id="path13646"
+         style="opacity:1;fill:url(#linearGradient15070);fill-opacity:1;stroke:url(#linearGradient15078);stroke-width:0.848657;stroke-linecap:round;stroke-linejoin:round"
+         d="M 3.7615957,1.7270489 2.4886099,10.63795 5.3640991,10.376722 5.8832386,15.305564 13.096824,5.5460062 9.5026287,6.3025047 12.248168,1.7270489 Z" />
+    </g>
+  </g>
+</svg>
