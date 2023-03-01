@@ -9,15 +9,18 @@ function App() {
         <h1>Caption image</h1>
       </header>
       <main>
-        <p>
-          This is a simple app to generate a caption image. You can upload an
-          image and add a caption to it. The image will be processed and
-          downloaded.<br />
-          <small>
-            In some cases, the image may not be generated. In that case, you can
-            try again with a different image, font or size.
-          </small>
-        </p>
+        <section className="intro">
+          <p>
+            This is a simple app to generate a caption image.
+            You can upload an image and add a caption to it.
+          </p>
+          <p>
+            <small>
+              In some cases, the image may not be generated. In that case, you can
+              try again with a different image, font or size.
+            </small>
+          </p>
+        </section>
         <CaptionGenerator />
       </main>
       <footer>
