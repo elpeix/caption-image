@@ -10,12 +10,14 @@ export default function CaptionGenerator() {
   const [image, setImage] = useState(null)
   const [caption, setCaption] = useState('')
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
   const handleUpload = event => {
     event.preventDefault()
     if (!image || !caption.text) {
       return
     }
+    setError(false)
     setLoading(true)
 
     const text = encodeURIComponent(caption.text)
@@ -42,11 +44,16 @@ export default function CaptionGenerator() {
         const url = `https://res.cloudinary.com/${config.cloudinary.key}/image/upload/c_thumb,g_face,h_400,w_400/${options}/f_webp/${image_url}`
         setImage({ preview: url, processed: true })
       })
-      .catch(err => console.log('error', err))
-      .finally(() => setLoading(false))
+      .catch(err => {
+        console.log('error', err)
+        setError(true)
+        setLoading(false)
+      })
+      .finally(() => setTimeout(() => setLoading(false), 2000))
   }
 
   const dropFilehandler = originalFile => {
+    setError(false)
     setImage({
       originalFile,
       preview: URL.createObjectURL(originalFile),
@@ -56,6 +63,7 @@ export default function CaptionGenerator() {
 
   const clear = (e) => {
     e.preventDefault()
+    setError(false)
     setImage(null)
   }
 
@@ -65,7 +73,11 @@ export default function CaptionGenerator() {
         <div>
           <h3></h3>
           {!image && <ImageDrop setImage={dropFilehandler} />}
-          {image && <ImagePreview file={image} />}
+          {image && <ImagePreview 
+            file={image} 
+            onLoad={() => setLoading(false)}
+            onError={() => setError(true)}
+          />}
         </div>
         <div>
           <h3></h3>
@@ -79,29 +91,33 @@ export default function CaptionGenerator() {
           </small>
         </p>
       )}
-      <div className='buttons'>
-        {(!image || !image.processed) && (
-          <button type="submit" onClick={handleUpload} disabled={!image || !caption.text || loading}>
-            {loading ? 'Loading...' : 'Generate'}
-          </button>
-        )}
-        {image && (
-          <>
-            {image.processed && (
-              <a
-                download
-                href={image.preview}
-                target="_blank"
-                className="button"
-                rel="noreferrer"
-              >
-                Download
-              </a>
-            )}
-            <button className="clear" onClick={clear}>Clear</button>
-          </>
-        )}
-      </div>
+      {error && <p className='error'>There was an error loading the image</p>}
+      { loading && <div className='loading'></div>}
+      { !loading && (
+        <div className='buttons'>
+          {(!image || !image.processed) && (
+            <button type="submit" onClick={handleUpload} disabled={!image || !caption.text || loading}>
+              {loading ? 'Loading...' : 'Generate'}
+            </button>
+          )}
+          {image && (
+            <>
+              {image.processed && !error && (
+                <a
+                  download
+                  href={image.preview}
+                  target="_blank"
+                  className="button"
+                  rel="noreferrer"
+                >
+                  Download
+                </a>
+              )}
+              <button className="clear" onClick={clear}>Clear</button>
+            </>
+          )}
+        </div>
+      )}
     </>
   )
 }

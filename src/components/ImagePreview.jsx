@@ -1,6 +1,8 @@
 import React from 'react'
+import errorImgage from '../assets/error.svg'
 
-export default function ImagePreview( { file }) {
+export default function ImagePreview( { file, onLoad, onError }) {
+
   return (
     <div className="imagePreview">
       <img
@@ -8,7 +10,15 @@ export default function ImagePreview( { file }) {
         alt="uploaded file"
         height={160}
         width={160}
-        onLoad={() => URL.revokeObjectURL(file.preview)}
+        onLoad={() => {
+          URL.revokeObjectURL(file.preview)
+          onLoad()
+        }}
+        onError={el => {
+          el.target.onError = null
+          el.target.src = errorImgage
+          onError()
+        }}
       />
     </div>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function PositionPicker({ position, onChange }) {
+export default function PickerPosition({ position, onChange }) {
 
   const positions = ['north', 'center', 'south']
 

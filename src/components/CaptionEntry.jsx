@@ -3,7 +3,7 @@ import CaptionText from './CaptionText'
 import PickerColor from './PickerColor'
 import PickerFont from './PickerFont'
 import PickerSize from './PickerSize'
-import PositionPicker from './PositionPicker'
+import PickerPosition from './PickerPosition'
 
 export default function CaptionEntry({ setCaption: defineCaption }) {
 
@@ -47,7 +47,7 @@ export default function CaptionEntry({ setCaption: defineCaption }) {
       <PickerFont font={caption.font} onChange={handleFontChange} />
       <PickerColor color={caption.color} onChange={handleColorChange} />
       <PickerSize size={caption.size} onChange={handleFontSizeChange} />
-      <PositionPicker position={caption.position} onChange={handlePositionChange} />
+      <PickerPosition position={caption.position} onChange={handlePositionChange} />
     </div>
   )
 }
