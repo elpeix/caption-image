@@ -92,8 +92,16 @@ export default function CaptionGenerator() {
           </small>
         </p>
       )}
-      {error && <p className='error'>There was an error loading the image</p>}
+
+      {error && (
+        <p className='error'>
+          There was an error loading the image.<br />
+          <strong>May be the Font is not supported.</strong>          
+        </p>
+      )}
+
       { loading && <div className='loading'></div>}
+
       { !loading && (
         <div className='buttons'>
           {(!image || !image.processed) && (
