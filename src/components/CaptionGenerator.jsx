@@ -3,7 +3,7 @@ import { useState } from 'react'
 import CaptionEntry from './CaptionEntry'
 import ImageDrop from './ImageDrop'
 import ImagePreview from './ImagePreview'
-import { config } from '../config'
+import { getConfig } from '../config'
 
 export default function CaptionGenerator() {
 
@@ -20,6 +20,7 @@ export default function CaptionGenerator() {
     setError(false)
     setLoading(true)
 
+    const config = getConfig()
     const text = encodeURIComponent(caption.text)
     const font = encodeURIComponent(caption.font)
     const size = Math.max(10, Math.min(100, caption.size))
