@@ -138,9 +138,9 @@ ul {
 
 button,
 a.button {
-  border-radius: 8px;
+  border-radius: 0.5rem;
   border: none;
-  padding: 1em 4em;
+  padding: 1em 3.2em;
   font-size: 1em;
   font-weight: 500;
   text-decoration: none;

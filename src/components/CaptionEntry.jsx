@@ -4,6 +4,7 @@ import PickerColor from './PickerColor'
 import PickerFont from './PickerFont'
 import PickerSize from './PickerSize'
 import PickerPosition from './PickerPosition'
+import PickerFontStyle from './PickerFontStyle'
 
 export default function CaptionEntry({ setCaption: defineCaption }) {
 
@@ -12,7 +13,10 @@ export default function CaptionEntry({ setCaption: defineCaption }) {
     color: '#555555',
     font: 'Arial',
     size: 40,
-    position: 'center'
+    position: 'center',
+    weight: 'normal',
+    style: 'normal',
+    underline: false,
   })
 
   useEffect(() => {
@@ -31,6 +35,9 @@ export default function CaptionEntry({ setCaption: defineCaption }) {
   const handleFontChange = font => setCaption({ ...caption, font: font.family })
   const handleFontSizeChange = value => setCaption({ ...caption, size: value })
   const handlePositionChange = position => setCaption({ ...caption, position })
+  const handleFontStyleChange = style => setCaption({ ...caption, style })
+  const handleFontWeightChange = weight => setCaption({ ...caption, weight })
+  const handleFontUnderlineChange = underline => setCaption({ ...caption, underline })
 
   const getBackgroundColor = () => {
     const hex = caption.color.replace('#', '')
@@ -47,6 +54,14 @@ export default function CaptionEntry({ setCaption: defineCaption }) {
       <PickerFont font={caption.font} onChange={handleFontChange} />
       <PickerColor color={caption.color} onChange={handleColorChange} />
       <PickerSize size={caption.size} onChange={handleFontSizeChange} />
+      <PickerFontStyle 
+        fontStyle={caption.style}
+        fontWeight={caption.weight}
+        fontUnderline={caption.underline}
+        onChangeStyle={handleFontStyleChange}
+        onChangeWeight={handleFontWeightChange}
+        onChangeUnderline={handleFontUnderlineChange}
+      />
       <PickerPosition position={caption.position} onChange={handlePositionChange} />
     </div>
   )

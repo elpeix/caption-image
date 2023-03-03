@@ -4,6 +4,7 @@ import CaptionEntry from './CaptionEntry'
 import ImageDrop from './ImageDrop'
 import ImagePreview from './ImagePreview'
 import { getConfig } from '../config'
+import { getOptions } from '../helpers/options'
 
 export default function CaptionGenerator() {
 
@@ -20,13 +21,9 @@ export default function CaptionGenerator() {
     setError(false)
     setLoading(true)
 
+    const options = getOptions({ caption, image })
     const config = getConfig()
-    const text = encodeURIComponent(caption.text)
-    const font = encodeURIComponent(caption.font)
-    const size = Math.max(10, Math.min(100, caption.size))
-    const color = caption.color.replace('#', 'rgb:')
-    const options = `l_text:${font}_${size}:${text},co_${color}/fl_layer_apply,g_${caption.position},y_0.05`
-
+    
     const formData = new FormData()
     formData.append('file', image.originalFile)
     formData.append('upload_preset', config.cloudinary.preset)
@@ -42,7 +39,7 @@ export default function CaptionGenerator() {
       .then(res => {
         const { secure_url } = res
         const image_url = secure_url.replace(`https://res.cloudinary.com/${config.cloudinary.key}/image/upload/`, '')
-        const url = `https://res.cloudinary.com/${config.cloudinary.key}/image/upload/c_thumb,g_face,h_400,w_400/${options}/f_webp/${image_url}`
+        const url = `https://res.cloudinary.com/${config.cloudinary.key}/image/upload/${options}/f_webp/${image_url}`
         setImage({ preview: url, processed: true })
       })
       .catch(err => {

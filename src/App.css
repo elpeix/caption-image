@@ -259,7 +259,6 @@
   gap: 0.5rem;
   width: 100%;
   max-width: 17rem;
-  background-color: var(--color-light);
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
@@ -278,6 +277,7 @@
 
 .positionPicker .icons .active {
   background-color: var(--color-primary);
+  opacity: 1;
 }
 
 .positionPicker .icons .north {
@@ -290,14 +290,49 @@
   background-image: url('assets/align-south.svg');
 }
 
+.fontStylePicker .buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 17rem;
+  color: black;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.fontStylePicker button {
+  width: 3rem;
+  height: 3rem;
+  font-size: 2rem;
+  padding: 0.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  background-color: var(--color-mid-light);
+  border-radius: 0.5rem;
+}
+.fontStylePicker button.italic {
+  font-style: italic;
+}
+.fontStylePicker button.bold {
+  font-weight: 800;
+}
+.fontStylePicker button.underline {
+  text-decoration: underline;
+}
+
+.fontStylePicker button.active {
+  background-color: var(--color-primary);
+  opacity: 1;
+}
+
 @media (prefers-color-scheme: light) {
   .captionText input::placeholder {
     color: var(--color-mid-dark) !important;
   }
-
-
 }
-
 
 p.error {
   color: var(--color-error);
