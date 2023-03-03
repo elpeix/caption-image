@@ -52,11 +52,21 @@ export default function CaptionGenerator() {
 
   const dropFilehandler = originalFile => {
     setError(false)
-    setImage({
-      originalFile,
-      preview: URL.createObjectURL(originalFile),
-      processed: false,
-    })
+    const preview = URL.createObjectURL(originalFile)
+    const img = new Image()
+    img.src = preview
+    img.onload = () => {
+      const { width, height } = img
+      console.log('width', width)
+      console.log('height', height)
+      setImage({ 
+        originalFile,
+        preview,
+        width,
+        height,
+        processed: false,
+      })
+    }
   }
 
   const clear = (e) => {

@@ -1,6 +1,6 @@
 const BASE_WIDTH = 400
 const MIN_WIDTH = 100
-const MAX_WIDTH = 1000
+const MAX_WIDTH = 1920
 const DEFAULT_FONT = 'Arial'
 
 const DEFAULT_FONT_SIZE = 20
@@ -20,7 +20,6 @@ export function getOptions({ caption, image }) {
   const width = getWidth(image.width)
   const imageOptions = getImageOptions(image, width)
   const captionOptions = getCaptionOptions(caption, width)
-
   return `${imageOptions}/${captionOptions}`
 }
 
@@ -31,8 +30,7 @@ function getImageOptions(image, width) {
 
 function getWidth(width) {
   width = width || BASE_WIDTH
-  width = Math.max(MIN_WIDTH, Math.min(MAX_WIDTH, width))
-  return width
+  return Math.max(MIN_WIDTH, Math.min(MAX_WIDTH, width))
 }
 
 function getCaptionOptions(caption, width) {
@@ -41,7 +39,7 @@ function getCaptionOptions(caption, width) {
   }
   const text = encodeURIComponent(caption.text)
   const font = encodeURIComponent(caption.font || DEFAULT_FONT)
-  const size = getSize(caption, width)
+  const size = getSize(caption.size, width)
   const color = getColor(caption)
   const italic = caption.style === 'italic' ? '_italic' : ''
   const bold = caption.weight === 'bold' ? '_bold' : ''
@@ -66,13 +64,14 @@ function getColor(caption) {
   return color.replace('#', 'rgb:')
 }
 
-function getSize(caption, width) {
-  if (isNaN(caption.size)) {
-    return DEFAULT_FONT_SIZE
+function getSize(size, width) {
+  if (isNaN(size) || !size) {
+    size = DEFAULT_FONT_SIZE
   }
-  const size = caption.size || DEFAULT_FONT_SIZE
+  size = size || DEFAULT_FONT_SIZE
+  size = Math.max(MIN_FONT_SIZE, Math.min(MAX_FONT_SIZE, size))
   const sizeRatio = width / BASE_WIDTH
-  return Math.round(Math.max(MIN_FONT_SIZE, Math.min(MAX_FONT_SIZE, size)) * sizeRatio)
+  return Math.round(size * sizeRatio)
 }
 
 function getPosition(caption) {

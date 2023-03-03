@@ -183,4 +183,36 @@ describe('options', () => {
       image: {}
     })).toBe('c_scale,w_400/l_text:Arial_20_letter_spacing_10:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
   })
+
+  it('should return default size when size is not a number', () => {
+    expect(getOptions({
+      caption: {
+        text: 'Hello World',
+        letterSpacing: 'invalid'
+      },
+      image: {}
+    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+  })
+
+  it('should return width from image', () => {
+    expect(getOptions({
+      caption: {
+        text: 'Hello World'
+      },
+      image: {
+        width: 100
+      }
+    })).toBe('c_scale,w_100/l_text:Arial_5:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+  })
+
+  it('should return max width when image width is greater than max', () => {
+    expect(getOptions({
+      caption: {
+        text: 'Hello World'
+      },
+      image: {
+        width: 1921
+      }
+    })).toBe('c_scale,w_1920/l_text:Arial_96:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+  })
 })
