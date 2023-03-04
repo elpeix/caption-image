@@ -1,3 +1,5 @@
+import { DEFAULT_POSITION, getMarginPosition, VALID_POSITIONS } from './positions'
+
 const BASE_WIDTH = 400
 const MIN_WIDTH = 100
 const MAX_WIDTH = 1920
@@ -8,7 +10,6 @@ const MIN_FONT_SIZE = 10
 const MAX_FONT_SIZE = 100
 
 const DEFAULT_COLOR = '#000000'
-const DEFAULT_POSITION = 'north'
 
 const MIN_LETTER_SPACING = 0
 const MAX_LETTER_SPACING = 10
@@ -46,8 +47,9 @@ function getCaptionOptions(caption, width) {
   const underline = caption.underline ? '_underline' : ''
   const position = getPosition(caption)
   const spacing = getSpacing(caption)
+  const opacity = getOpacity(caption)
 
-  const options = `l_text:${font}_${size}${italic}${bold}${underline}${spacing}:${text},co_${color}/fl_layer_apply,g_${position},y_0.05`
+  const options = `l_text:${font}_${size}${italic}${bold}${underline}${spacing}:${text},co_${color}${opacity}/fl_layer_apply,g_${position}`
   return options
 }
 
@@ -75,11 +77,17 @@ function getSize(size, width) {
 }
 
 function getPosition(caption) {
-  const positions = ['north', 'south', 'east', 'west', 'north_east', 'north_west', 'south_east', 'south_west', 'center']
-  if (!positions.includes(caption.position)) {
+  if (!VALID_POSITIONS.includes(caption.position) || !caption.position) {
     return DEFAULT_POSITION
   }
-  return caption.position || DEFAULT_POSITION
+  const [x, y] = getMarginPosition(caption.position)
+  if (x > 0) {
+    caption.position = `${caption.position},x_${x}`
+  }
+  if (y > 0) {
+    caption.position = `${caption.position},y_${y}`
+  }
+  return caption.position
 }
 
 function getSpacing(caption) {
@@ -88,4 +96,12 @@ function getSpacing(caption) {
   }
   const spacing = Math.max(MIN_LETTER_SPACING, Math.min(MAX_LETTER_SPACING, caption.letterSpacing))
   return `_letter_spacing_${spacing}`
+}
+
+function getOpacity(caption) {
+  if (isNaN(caption.opacity) || !caption.opacity) {
+    return ''
+  }
+  const opacity = Math.max(0, Math.min(100, caption.opacity))
+  return `,o_${opacity}`
 }

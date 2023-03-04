@@ -5,6 +5,7 @@ import PickerFont from './PickerFont'
 import PickerSize from './PickerSize'
 import PickerPosition from './PickerPosition'
 import PickerFontStyle from './PickerFontStyle'
+import PickerOpacity from './PickerOpacity'
 
 export default function CaptionEntry({ setCaption: defineCaption }) {
 
@@ -17,6 +18,7 @@ export default function CaptionEntry({ setCaption: defineCaption }) {
     weight: 'normal',
     style: 'normal',
     underline: false,
+    opacity: 100
   })
 
   useEffect(() => {
@@ -38,6 +40,7 @@ export default function CaptionEntry({ setCaption: defineCaption }) {
   const handleFontStyleChange = style => setCaption({ ...caption, style })
   const handleFontWeightChange = weight => setCaption({ ...caption, weight })
   const handleFontUnderlineChange = underline => setCaption({ ...caption, underline })
+  const handleOpacityChange = opacity => setCaption({ ...caption, opacity })
 
   const getBackgroundColor = () => {
     const hex = caption.color.replace('#', '')
@@ -63,6 +66,7 @@ export default function CaptionEntry({ setCaption: defineCaption }) {
         onChangeUnderline={handleFontUnderlineChange}
       />
       <PickerPosition position={caption.position} onChange={handlePositionChange} />
+      <PickerOpacity opacity={caption.opacity} onChange={handleOpacityChange} />
     </div>
   )
 }

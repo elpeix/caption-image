@@ -218,7 +218,7 @@ input {
   height: 6rem;
   background-color: var(--color-light);
   color: var(--color-dark);
-  transition: background-color 0.25s, color 0.25s;
+  transition: background-color 0.15s;
 }
 @media (prefers-color-scheme: light) {
   input {

@@ -57,8 +57,6 @@ export default function CaptionGenerator() {
     img.src = preview
     img.onload = () => {
       const { width, height } = img
-      console.log('width', width)
-      console.log('height', height)
       setImage({ 
         originalFile,
         preview,
@@ -86,54 +84,56 @@ export default function CaptionGenerator() {
             onLoad={() => setLoading(false)}
             onError={() => setError(true)}
           />}
+          {(!image || !caption.text) && (
+            <p>
+              <small>
+                <strong>Tip:</strong> Upload an image and add a caption to generate a meme.
+              </small>
+            </p>
+          )}
+
+          <div className='spacer'></div>
+
+          {error && (
+            <p className='error'>
+              There was an error loading the image.<br />
+              <strong>May be the Font is not supported.</strong>          
+            </p>
+          )}
+
+          { loading && <div className='loading'></div>}
+
+          { !loading && (
+            <div className='buttons'>
+              {(!image || !image.processed) && (
+                <button type="submit" onClick={handleUpload} disabled={!image || !caption.text || loading}>
+                  {loading ? 'Loading...' : 'Generate'}
+                </button>
+              )}
+              {image && (
+                <>
+                  {image.processed && !error && (
+                    <a
+                      download
+                      href={image.preview}
+                      target="_blank"
+                      className="button"
+                      rel="noreferrer"
+                    >
+                      Download
+                    </a>
+                  )}
+                  <button className="clear" onClick={clear}>Clear</button>
+                </>
+              )}
+            </div>
+          )}
         </div>
         <div>
           <h3></h3>
           <CaptionEntry setCaption={setCaption} />
         </div>
       </div>
-      {(!image || !caption.text) && (
-        <p>
-          <small>
-            <strong>Tip:</strong> Upload an image and add a caption to generate a meme.
-          </small>
-        </p>
-      )}
-
-      {error && (
-        <p className='error'>
-          There was an error loading the image.<br />
-          <strong>May be the Font is not supported.</strong>          
-        </p>
-      )}
-
-      { loading && <div className='loading'></div>}
-
-      { !loading && (
-        <div className='buttons'>
-          {(!image || !image.processed) && (
-            <button type="submit" onClick={handleUpload} disabled={!image || !caption.text || loading}>
-              {loading ? 'Loading...' : 'Generate'}
-            </button>
-          )}
-          {image && (
-            <>
-              {image.processed && !error && (
-                <a
-                  download
-                  href={image.preview}
-                  target="_blank"
-                  className="button"
-                  rel="noreferrer"
-                >
-                  Download
-                </a>
-              )}
-              <button className="clear" onClick={clear}>Clear</button>
-            </>
-          )}
-        </div>
-      )}
     </>
   )
 }

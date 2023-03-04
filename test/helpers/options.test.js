@@ -21,7 +21,7 @@ describe('options', () => {
         text: 'Hello World'
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return correct options with custom font', () => {
@@ -31,7 +31,7 @@ describe('options', () => {
         font: 'Times New Roman'
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Times%20New%20Roman_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Times%20New%20Roman_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return correct options with custom font size', () => {
@@ -41,7 +41,7 @@ describe('options', () => {
         size: 30
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_30:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_30:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return max font size when size is greater than max', () => {
@@ -51,7 +51,7 @@ describe('options', () => {
         size: 101
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_100:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_100:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return min font size when size is less than min', () => {
@@ -61,7 +61,7 @@ describe('options', () => {
         size: 9
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_10:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_10:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return default font size when size is not a number', () => {
@@ -71,7 +71,7 @@ describe('options', () => {
         size: 'invalid'
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return correct options with custom color', () => {
@@ -81,7 +81,7 @@ describe('options', () => {
         color: '#ffffFF'
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:ffffff/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:ffffff/fl_layer_apply,g_center')
   })
 
   it('should return default color when color is invalid', () => {
@@ -91,7 +91,7 @@ describe('options', () => {
         color: 'invalid'
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return default color when color is invalid', () => {
@@ -101,7 +101,7 @@ describe('options', () => {
         color: '#ffffgf'
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return correct options with custom position', () => {
@@ -114,6 +114,16 @@ describe('options', () => {
     })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_south,y_0.05')
   })
 
+  it('should return correct options with custom position', () => {
+    expect(getOptions({
+      caption: {
+        text: 'Hello World',
+        position: 'south_west'
+      },
+      image: {}
+    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_south_west,x_0.05,y_0.05')
+  })
+
   it('should return default position when position is invalid', () => {
     expect(getOptions({
       caption: {
@@ -121,7 +131,7 @@ describe('options', () => {
         position: 'invalid'
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return correct options with custom style', () => {
@@ -131,7 +141,7 @@ describe('options', () => {
         style: 'italic'
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_20_italic:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_20_italic:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return correct options with custom weight', () => {
@@ -141,7 +151,7 @@ describe('options', () => {
         weight: 'bold'
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_20_bold:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_20_bold:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return correct options with custom underline', () => {
@@ -151,7 +161,7 @@ describe('options', () => {
         underline: true
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_20_underline:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_20_underline:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return correct options with custom letter spacing', () => {
@@ -161,7 +171,7 @@ describe('options', () => {
         letterSpacing: 10
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_20_letter_spacing_10:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_20_letter_spacing_10:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return min letter spacing when spacing is less than min', () => {
@@ -171,7 +181,7 @@ describe('options', () => {
         letterSpacing: -1
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_20_letter_spacing_0:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_20_letter_spacing_0:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return max letter spacing when spacing is greater than max', () => {
@@ -181,7 +191,17 @@ describe('options', () => {
         letterSpacing: 11
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_20_letter_spacing_10:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_20_letter_spacing_10:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
+  })
+
+  it('should return opacity when opacity is valid', () => {
+    expect(getOptions({
+      caption: {
+        text: 'Hello World',
+        opacity: 50
+      },
+      image: {}
+    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000,o_50/fl_layer_apply,g_center')
   })
 
   it('should return default size when size is not a number', () => {
@@ -191,7 +211,7 @@ describe('options', () => {
         letterSpacing: 'invalid'
       },
       image: {}
-    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_400/l_text:Arial_20:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return width from image', () => {
@@ -202,7 +222,7 @@ describe('options', () => {
       image: {
         width: 100
       }
-    })).toBe('c_scale,w_100/l_text:Arial_5:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_100/l_text:Arial_5:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
   it('should return max width when image width is greater than max', () => {
@@ -213,6 +233,7 @@ describe('options', () => {
       image: {
         width: 1921
       }
-    })).toBe('c_scale,w_1920/l_text:Arial_96:Hello%20World,co_rgb:000000/fl_layer_apply,g_north,y_0.05')
+    })).toBe('c_scale,w_1920/l_text:Arial_96:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
+
 })
