@@ -9,8 +9,32 @@
   width: 100%;
 }
 
+@media all and (max-width: 768px) {
+  .editContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .editContainer > * {
   flex: 1;
+}
+
+.buttonsContainer {
+  margin-top: 2rem;
+}
+@media all and (min-width: 768px) {
+  .buttonsContainer {
+    margin-top: -8rem;
+  }
+}
+
+
+@media all and (min-width: 1024px) {
+  .buttonsContainer {
+    margin-top: -7rem;
+  }
 }
 
 .uploader {
@@ -342,6 +366,7 @@
   padding: 0.5rem;
   background-repeat: no-repeat;
   background-position: center;
+  color: black;
   cursor: pointer;
   background-color: var(--color-mid-light);
   border-radius: 0.5rem;

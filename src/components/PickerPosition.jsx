@@ -23,11 +23,11 @@ export default function PickerPosition({ position, onChange }) {
     <div className='positionPicker'>
       <h4>Position</h4>
       <div className='icons'>
-        <div className='vIcons'>
-          {H_POSITIONS.map((pos, i) => (
+        <div className='hIcons'>
+          {V_POSITIONS.map((pos, i) => (
             <button
               key={i}
-              className={`icon ${pos} ${pos === hPosition ? 'active' : ''}`}
+              className={`icon ${pos} ${pos === vPosition ? 'active' : ''}`}
               onClick={e => {
                 e.preventDefault()
                 handlePositionChange(pos)
@@ -35,11 +35,11 @@ export default function PickerPosition({ position, onChange }) {
             />
           ))}
         </div>
-        <div className='hIcons'>
-          {V_POSITIONS.map((pos, i) => (
+        <div className='vIcons'>
+          {H_POSITIONS.map((pos, i) => (
             <button
               key={i}
-              className={`icon ${pos} ${pos === vPosition ? 'active' : ''}`}
+              className={`icon ${pos} ${pos === hPosition ? 'active' : ''}`}
               onClick={e => {
                 e.preventDefault()
                 handlePositionChange(pos)

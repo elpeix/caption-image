@@ -84,6 +84,12 @@ export default function CaptionGenerator() {
             onLoad={() => setLoading(false)}
             onError={() => setError(true)}
           />}
+        </div>
+        <div>
+          <h3></h3>
+          <CaptionEntry setCaption={setCaption} />
+        </div>
+        <div className='buttonsContainer'>
           {(!image || !caption.text) && (
             <p>
               <small>
@@ -91,9 +97,6 @@ export default function CaptionGenerator() {
               </small>
             </p>
           )}
-
-          <div className='spacer'></div>
-
           {error && (
             <p className='error'>
               There was an error loading the image.<br />
@@ -128,10 +131,6 @@ export default function CaptionGenerator() {
               )}
             </div>
           )}
-        </div>
-        <div>
-          <h3></h3>
-          <CaptionEntry setCaption={setCaption} />
         </div>
       </div>
     </>

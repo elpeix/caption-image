@@ -80,14 +80,15 @@ function getPosition(caption) {
   if (!VALID_POSITIONS.includes(caption.position) || !caption.position) {
     return DEFAULT_POSITION
   }
-  const [x, y] = getMarginPosition(caption.position)
+  let position = caption.position
+  const [x, y] = getMarginPosition(position)
   if (x > 0) {
-    caption.position = `${caption.position},x_${x}`
+    position = `${position},x_${x}`
   }
   if (y > 0) {
-    caption.position = `${caption.position},y_${y}`
+    position = `${position},y_${y}`
   }
-  return caption.position
+  return position
 }
 
 function getSpacing(caption) {
