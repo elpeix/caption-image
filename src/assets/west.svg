@@ -5,7 +5,7 @@
    viewBox="0 0 6.3499999 6.3500002"
    version="1.1"
    id="svg6"
-   sodipodi:docname="align-west.svg"
+   sodipodi:docname="west.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -45,7 +45,12 @@
      id="rect2" />
   <path
      style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 1.8520833,1.8520833 0,2.6458334"
+     d="M 1.5875,3.96875 H 3.7041667"
      sodipodi:nodetypes="cc"
      id="path4" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 1.5875,2.6458334 H 2.6458334"
+     sodipodi:nodetypes="cc"
+     id="path9776" />
 </svg>
