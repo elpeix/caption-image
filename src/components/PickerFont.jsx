@@ -18,6 +18,7 @@ export default function PickerFont({ font, onChange }) {
         sort='popularity'
         activeFontFamily={font}
         className='fontPickerSelector'
+        variants={['regular', 'italic', '700', '700italic']}
         onChange={onChange}
       />
     </div>
