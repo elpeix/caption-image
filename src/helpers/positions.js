@@ -35,3 +35,19 @@ export function getMarginPosition(position) {
   }
   return [0.05, 0.05]
 }
+
+export function getInitialHPosition(entryPosition) {
+  let hPosition = entryPosition.split('_')[0] || 'middle'
+  if (!H_POSITIONS.includes(hPosition)) {
+    hPosition = 'middle'
+  }
+  return hPosition
+}
+
+export function getInitialVPosition(entryPosition) {
+  let vPosition = entryPosition.split('_')[1] || 'center'
+  if (!V_POSITIONS.includes(vPosition)) {
+    vPosition = 'center'
+  }
+  return vPosition
+}

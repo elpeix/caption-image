@@ -236,4 +236,42 @@ describe('options', () => {
     })).toBe('c_scale,w_1920/l_text:Arial_96:Hello%20World,co_rgb:000000/fl_layer_apply,g_center')
   })
 
+  it('should not change arguments (immutability)', () => {
+    const options = {
+      caption: {
+        text: 'Hello World',
+        color: '#123456',
+        font: 'Roboto',
+        fontSize: 16,
+        opacity: 80,
+        position: 'north_west',
+        style: 'italic',
+        weight: 'bold',
+        underline: true,
+      },
+      image: {
+        width: 1921
+      }
+    }
+
+    getOptions(options)
+
+    expect(options).toEqual({
+      caption: {
+        text: 'Hello World',
+        color: '#123456',
+        font: 'Roboto',
+        fontSize: 16,
+        opacity: 80,
+        position: 'north_west',
+        style: 'italic',
+        weight: 'bold',
+        underline: true,
+      },
+      image: {
+        width: 1921
+      }
+    })
+  })
+
 })

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { H_POSITIONS, V_POSITIONS, getPosition } from '../helpers/positions'
+import { H_POSITIONS, V_POSITIONS, getPosition, getInitialHPosition, getInitialVPosition } from '../helpers/positions'
 
 export default function PickerPosition({ position, onChange }) {
 
-  const [hPosition, setHPosition] = useState(position.split('_')[0] || 'middle')
-  const [vPosition, setVPosition] = useState(position.split('_')[1] || 'center')
+  const [hPosition, setHPosition] = useState(getInitialHPosition(position))
+  const [vPosition, setVPosition] = useState(getInitialVPosition(position))
 
   const handlePositionChange = pos => {
     let hpos = hPosition
