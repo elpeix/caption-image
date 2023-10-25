@@ -34,7 +34,7 @@ export default function CaptionEntry({ setCaption: defineCaption }) {
   }
 
   const handleColorChange = color => setCaption({ ...caption, color: color.hex })
-  const handleFontChange = font => setCaption({ ...caption, font: font.family })
+  const handleFontChange = font => setCaption({ ...caption, font })
   const handleFontSizeChange = value => setCaption({ ...caption, size: value })
   const handlePositionChange = position => setCaption({ ...caption, position })
   const handleFontStyleChange = style => setCaption({ ...caption, style })

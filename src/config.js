@@ -7,10 +7,6 @@ export function getConfig() {
       preset: process.env.VITE_CLOUDINARY_PRESET,
       // eslint-disable-next-line no-undef
       api_key: process.env.VITE_CLOUDINARY_API_KEY
-    },
-    google: {
-      // eslint-disable-next-line no-undef
-      font_api_key: process.env.VITE_GOOGLE_FONT_API_KEY
     }
   }
 }

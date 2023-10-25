@@ -227,11 +227,15 @@
   display: block !important;
 }
 
-.fontPicker > div {
-  color: var(--color-mid-dark);
+.fontPicker > select {
+  color: var(--color);
   width: 100% !important;
   max-width: 17rem;
   box-shadow: none !important;
+  border: 0.1rem solid var(--color-mid-dark);
+  border-radius: 0.5rem;
+  padding: 0.7rem;
+  font-size: 1.1rem;
 }
 
 .fontPicker ul {
